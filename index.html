@@ -30,8 +30,6 @@ canvas{max-width:90%;max-height:85%;border-radius:12px;border: 1px solid var(--b
 .tab-bar{display:flex;gap:8px;margin-bottom:24px;background:var(--surface3);padding:4px;border-radius:10px}
 .tab{flex:1;padding:8px;text-align:center;font-size:13px;border-radius:7px;cursor:pointer;color:var(--muted);transition:0.2s}
 .tab.active{background:var(--surface);color:var(--cyan);box-shadow:0 2px 4px rgba(0,0,0,0.2)}
-#statusBadge{position:absolute;top:20px;right:20px;padding:6px 12px;border-radius:20px;background:var(--surface3);font-size:10px;color:var(--cyan);opacity:0;transition:0.3s}
-#statusBadge.on{opacity:1}
 </style>
 </head>
 <body>
@@ -50,15 +48,15 @@ canvas{max-width:90%;max-height:85%;border-radius:12px;border: 1px solid var(--b
     <input type="number" id="inF" value="2500">
   </div>
   <div class="input-group">
-    <span class="label">Angle θ (deg)</span>
+    <span class="label">Angle θ (deg from Vertical)</span>
     <input type="number" id="inTheta" value="30">
   </div>
   <div class="input-group">
-    <span class="label">d_x (mm) [Horizontal]</span>
+    <span class="label">d_x (mm)</span>
     <input type="number" id="indX" value="120">
   </div>
   <div class="input-group">
-    <span class="label">d_y (mm) [Vertical]</span>
+    <span class="label">d_y (mm)</span>
     <input type="number" id="indY" value="10">
   </div>
 
@@ -69,11 +67,9 @@ canvas{max-width:90%;max-height:85%;border-radius:12px;border: 1px solid var(--b
     <div id="resVal" style="font-family:'Space Mono';font-size:24px;margin:8px 0">0.00 Nm</div>
     <div id="resDir" style="font-size:12px;color:var(--muted)">DIRECTION: ---</div>
   </div>
-  <div id="errMsg" style="color:var(--orange);font-size:12px;margin-top:10px;display:none"></div>
 </div>
 
 <div class="main">
-  <div id="statusBadge">SIMULATING...</div>
   <div class="canvas-container">
     <canvas id="canvas"></canvas>
   </div>
@@ -95,6 +91,7 @@ resize();
 
 function compute() {
   const F = parseFloat(document.getElementById('inF').value);
+  // Angle is from the vertical
   const theta = parseFloat(document.getElementById('inTheta').value) * Math.PI / 180;
   const dx_mm = parseFloat(document.getElementById('indX').value);
   const dy_mm = parseFloat(document.getElementById('indY').value);
@@ -102,13 +99,13 @@ function compute() {
   const dx = dx_mm / 1000; 
   const dy = dy_mm / 1000; 
 
-  // Force direction: LEFT and DOWN
-  // Fx = -F * cos(theta), Fy = -F * sin(theta)
-  const Fx = -F * Math.cos(theta);
-  const Fy = -F * Math.sin(theta);
+  // F acts DOWN and RIGHT (pointing toward B from upper-left)
+  // Components relative to vertical: Fx = F*sin(th), Fy = -F*cos(th)
+  const Fx = F * Math.sin(theta);
+  const Fy = -F * Math.cos(theta);
 
-  // Moment at A: M_A = r_x*Fy - r_y*Fx
-  // B is at (dx, -dy) relative to A
+  // Moment M_A = rx*Fy - ry*Fx where r is B relative to A
+  // B is at (dx, -dy)
   const rx = dx;
   const ry = -dy; 
   const MA = (rx * Fy) - (ry * Fx);
@@ -118,74 +115,60 @@ function compute() {
 
 function draw(p, t) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const cx = 300; // Center offset for A
-  const cy = 300;
-  const drawScale = 2.5; // Visual scale for mm
+  const cx = 350; 
+  const cy = 250;
+  const drawScale = 2.5;
 
-  // Fixed Point A
+  // A Point
   ctx.beginPath();
   ctx.arc(cx, cy, 6, 0, Math.PI*2);
   ctx.fillStyle = '#38bdf8';
   ctx.fill();
   ctx.fillStyle = '#e2eeff';
-  ctx.font = '700 16px Space Mono';
   ctx.fillText("A", cx - 25, cy - 10);
 
-  // Point B
+  // B Point
   const bx = cx + (p.dx_mm * drawScale);
   const by = cy + (p.dy_mm * drawScale);
 
-  // Draw Member AB
+  // Member AB
   ctx.beginPath();
   ctx.moveTo(cx, cy);
   ctx.lineTo(bx, by);
-  ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+  ctx.strokeStyle = 'rgba(255,255,255,0.2)';
   ctx.lineWidth = 10;
-  ctx.lineCap = 'round';
   ctx.stroke();
 
-  // Point B dot
-  ctx.beginPath();
-  ctx.arc(bx, by, 4, 0, Math.PI*2);
-  ctx.fillStyle = '#a78bfa';
-  ctx.fill();
-  ctx.fillText("B", bx + 10, by - 10);
-
   if (currentTab === 'fbd') {
-    // Corrected Force Vector F pointing LEFT and DOWN
-    const vectorLen = 120 * t;
-    const fx_viz = Math.cos(p.theta) * vectorLen;
-    const fy_viz = Math.sin(p.theta) * vectorLen;
+    // Arrow pointing TOWARDS B from above/left
+    const arrowLen = 150 * t;
+    const startX = bx - (Math.sin(p.theta) * arrowLen);
+    const startY = by - (Math.cos(p.theta) * arrowLen);
 
     ctx.beginPath();
-    // Arrow starts at B and goes to the left/down
-    drawArrow(ctx, bx, by, bx - fx_viz, by + fy_viz, 12);
+    drawArrow(ctx, startX, startY, bx, by, 15);
     ctx.strokeStyle = '#fb923c';
     ctx.lineWidth = 4;
     ctx.stroke();
     
-    ctx.fillStyle = '#fb923c';
-    ctx.fillText(`F = ${p.F}N`, bx - fx_viz - 40, by + fy_viz + 25);
-  }
-
-  if (currentTab === 'geom') {
+    // Vertical Reference Line at B
     ctx.setLineDash([5, 5]);
-    ctx.strokeStyle = '#4a607e';
-    ctx.lineWidth = 1;
-    // Horizontal dimension
     ctx.beginPath();
-    ctx.moveTo(cx, cy + 40);
-    ctx.lineTo(bx, cy + 40);
+    ctx.moveTo(bx, by);
+    ctx.lineTo(bx, by - 100);
+    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
     ctx.stroke();
-    ctx.fillText(`${p.dx_mm}mm`, (cx+bx)/2 - 20, cy + 60);
     ctx.setLineDash([]);
+    
+    ctx.fillStyle = '#fb923c';
+    ctx.font = '14px Space Mono';
+    ctx.fillText(`F = ${p.F}N`, startX - 20, startY - 20);
+    ctx.fillText(`${(p.theta * 180 / Math.PI).toFixed(0)}°`, bx - 15, by - 70);
   }
 
-  if (currentTab === 'moment' && t > 0.4) {
-    const mProg = (t - 0.4) * 1.6;
+  if (currentTab === 'moment' && t > 0.5) {
     ctx.beginPath();
-    // Arc shows rotation direction
-    ctx.arc(cx, cy, 50, 0, Math.PI * 1.5 * mProg, p.MA < 0);
+    ctx.arc(cx, cy, 40, 0, Math.PI * 1.5 * (t-0.5)*2, p.MA < 0);
     ctx.strokeStyle = '#34d399';
     ctx.lineWidth = 3;
     ctx.stroke();
@@ -204,18 +187,13 @@ function drawArrow(ctx, fromx, fromy, tox, toy, r) {
 function solve() {
   const p = compute();
   window._P = p;
-  const badge = document.getElementById('statusBadge');
-  badge.classList.add('on');
-  
   const start = performance.now();
   function frame(now) {
     const t = Math.min((now - start) / 800, 1);
     draw(p, t);
-    if (t < 1) _raf = requestAnimationFrame(frame);
-    else badge.classList.remove('on');
+    if (t < 1) requestAnimationFrame(frame);
   }
-  if (_raf) cancelAnimationFrame(_raf);
-  _raf = requestAnimationFrame(frame);
+  requestAnimationFrame(frame);
 
   document.getElementById('resultCard').style.display = 'block';
   document.getElementById('resVal').textContent = `${Math.abs(p.MA).toFixed(2)} Nm`;
