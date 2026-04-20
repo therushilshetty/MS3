@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>StaticsMaster · Trailer Hitch Moment</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090f;--surface:#0d1117;--surface2:#111827;--surface3:#162033;
+  --border:rgba(56,189,248,.13);--divider:rgba(56,189,248,.07);
+  --text:#e2eeff;--muted:#8ba3c9;--faint:#4a607e;
+  --cyan:#38bdf8;--cyan-glow:rgba(56,189,248,.18);
+  --violet:#a78bfa;--violet-glow:rgba(167,139,250,.15);
+  --orange:#fb923c;--orange-glow:rgba(251,146,60,.15);
+  --green:#34d399;--green-glow:rgba(52,211,153,.14);
+  --rose:#fb7185;--rose-glow:rgba(251,113,133,.13);
+  --yellow:#fbbf24;--yellow-glow:rgba(251,191,36,.13);
+  --grid-line:rgba(56,189,248,.04);
+  --font:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace;
+  --r-sm:8px;--r-md:14px;--r-lg:20px;
+}
+[data-theme="light"]{
+  --bg:#f0f4fa;--surface:#fff;--surface2:#f5f9ff;--surface3:#eaf2ff;
+  --border:rgba(14,80,180,.10);--divider:rgba(14,80,180,.06);
+  --text:#0f172a;--muted:#4b6b96;--faint:#94a3b8;
+  --cyan:#0284c7;--cyan-glow:rgba(2,132,199,.10);
+  --violet:#7c3aed;--violet-glow:rgba(124,58,237,.10);
+  --orange:#ea580c;--orange-glow:rgba(234,88,12,.10);
+  --green:#059669;--green-glow:rgba(5,150,105,.10);
+  --rose:#e11d48;--rose-glow:rgba(225,29,72,.10);
+  --yellow:#d97706;--yellow-glow:rgba(217,119,6,.10);
+  --grid-line:rgba(14,80,180,.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);
+  background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:40px 40px;color:var(--text);min-height:100vh;}
+button,input,select{font-family:var(--font);color:var(--text);border:none;outline:none;background:none;cursor:pointer}
+
+.hdr{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:0 24px;height:56px;background:color-mix(in srgb,var(--surface) 85%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(16px)}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--cyan),var(--violet));display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:700;color:#fff;box-shadow:0 0 20px var(--cyan-glow)}
+.brand-name{font-size:15px;font-weight:700;letter-spacing:-.3px}
+.brand-sub{font-size:10px;color:var(--muted);font-family:var(--mono);letter-spacing:.4px;text-transform:uppercase}
+.hdr-r{display:flex;gap:8px;align-items:center}
+.pill{padding:4px 11px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:1px solid var(--border);color:var(--cyan);background:var(--cyan-glow)}
+.sym-pill{color:var(--violet);background:var(--violet-glow);border-color:rgba(167,139,250,.25)}
+.icon-btn{width:34px;height:34px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);display:grid;place-items:center;transition:.2s}
+.icon-btn:hover{border-color:var(--cyan);background:var(--cyan-glow)}
+
+.layout{display:grid;grid-template-columns:370px 1fr;min-height:calc(100vh - 56px)}
+.sidebar{padding:16px;border-right:1px solid var(--border);background:color-mix(in srgb,var(--surface) 70%,transparent);display:flex;flex-direction:column;gap:12px;overflow-y:auto}
+.main-col{padding:16px;display:flex;flex-direction:column;gap:14px;overflow-y:auto}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.card-pad{padding:16px}
+.card-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+.ibox{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:13px;flex-shrink:0}
+.ib-cyan{background:var(--cyan-glow);color:var(--cyan);border:1px solid rgba(56,189,248,.25)}
+.ib-violet{background:var(--violet-glow);color:var(--violet);border:1px solid rgba(167,139,250,.25)}
+.ib-orange{background:var(--orange-glow);color:var(--orange);border:1px solid rgba(251,146,60,.25)}
+.ib-green{background:var(--green-glow);color:var(--green);border:1px solid rgba(52,211,153,.25)}
+.ct{font-size:12px;font-weight:700}.cs{font-size:10px;color:var(--muted);margin-top:1px}
+
+.slabel{font-size:9px;font-weight:700;font-family:var(--mono);color:var(--faint);letter-spacing:1px;text-transform:uppercase;padding:8px 0 6px;border-bottom:1px solid var(--divider);margin:4px 0 8px}
+.field{margin-bottom:8px}
+.field label{display:flex;justify-content:space-between;align-items:center;font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.utag{font-size:9px;font-family:var(--mono);text-transform:none;letter-spacing:0;font-weight:400;padding:1px 6px;border-radius:999px}
+.utag-c{color:var(--cyan);background:var(--cyan-glow);border:1px solid rgba(56,189,248,.2)}
+.utag-v{color:var(--violet);background:var(--violet-glow);border:1px solid rgba(167,139,250,.2)}
+.utag-o{color:var(--orange);background:var(--orange-glow);border:1px solid rgba(251,146,60,.2)}
+.utag-y{color:var(--yellow);background:var(--yellow-glow);border:1px solid rgba(251,191,36,.2)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.iw input{width:100%;padding:8px 11px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;font-size:12px;transition:.2s;color:var(--text)}
+.iw input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px var(--cyan-glow)}
+.iw input.sym{border-color:rgba(167,139,250,.5);color:var(--violet);font-family:var(--mono);background:rgba(167,139,250,.05)}
+.iw input.err{border-color:var(--rose);box-shadow:0 0 0 3px var(--rose-glow)!important}
+
+.solve-btn{width:100%;padding:11px;border-radius:12px;font-size:13px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--cyan),var(--violet),var(--orange));box-shadow:0 4px 20px rgba(56,189,248,.2);transition:.25s;position:relative;overflow:hidden;margin-top:10px}
+.solve-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,255,255,.13),transparent);transform:translateX(-100%);transition:.5s}
+.solve-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(56,189,248,.3)}
+.solve-btn:hover::after{transform:translateX(100%)}
+
+.sym-banner{display:none;padding:9px 12px;border-radius:10px;background:var(--violet-glow);border:1px solid rgba(167,139,250,.3);font-size:11px;color:var(--violet);line-height:1.6;margin-top:8px}
+.sym-banner.on{display:block}
+.errmsg{display:none;font-size:11px;color:var(--rose);background:var(--rose-glow);border:1px solid rgba(251,113,133,.25);padding:8px 11px;border-radius:9px;margin-top:8px;line-height:1.6}
+
+.warn-widget{display:none;margin-top:10px;border-radius:12px;border:1.5px solid rgba(251,113,133,.40);background:rgba(251,113,133,.07);overflow:hidden}
+.warn-widget.visible{display:flex;align-items:stretch}
+.warn-accent{width:4px;background:linear-gradient(180deg,#fb7185,#fb923c);flex-shrink:0}
+.warn-text-wrap{padding:10px 12px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.warn-title{font-size:10px;font-weight:700;font-family:var(--mono);color:#fb7185;letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px}
+.warn-line{font-size:11px;color:#fb7185;line-height:1.7}
+
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.chip{padding:10px;border-radius:12px;background:var(--surface2);border:1px solid var(--border);text-align:center;position:relative;overflow:hidden;transition:.25s}
+.chip:hover{border-color:var(--cyan);transform:translateY(-1px)}
+.chip-acc{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet))}
+.ck{font-size:9px;font-weight:700;font-family:var(--mono);letter-spacing:.5px;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.cv{font-family:var(--mono);font-size:15px;font-weight:700;line-height:1.2;word-break:break-all}
+.cv.sym-val{font-size:11px;color:var(--violet)}
+.cu{font-size:9px;color:var(--muted);margin-top:2px}
+.chip.big{grid-column:1/-1;background:linear-gradient(135deg,rgba(56,189,248,.06),rgba(167,139,250,.06));border-color:rgba(56,189,248,.3)}
+.chip.big .cv{font-size:20px;color:var(--cyan)}
+.chip.big .cv.sym-val{font-size:12px;color:var(--violet)}
+.chip.big .chip-acc{background:linear-gradient(90deg,var(--cyan),var(--violet),var(--orange))}
+.chip.ccw .cv{color:var(--green)}
+.chip.cw  .cv{color:var(--rose)}
+
+.fbd-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border)}
+.tabs{display:flex;gap:3px;background:var(--surface2);padding:3px;border-radius:10px}
+.tab{padding:5px 12px;border-radius:8px;font-size:11px;font-weight:700;color:var(--muted);transition:.2s}
+.tab.active{background:var(--surface);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.canvas-zone{position:relative;background:radial-gradient(ellipse at 30% 40%,color-mix(in srgb,var(--cyan-glow) 60%,transparent),transparent 55%),radial-gradient(ellipse at 70% 70%,color-mix(in srgb,var(--violet-glow) 40%,transparent),transparent 50%),var(--bg);display:flex;justify-content:center;align-items:center;padding:20px}
+#fbdCanvas{border-radius:14px;width:100%;max-width:940px;height:auto;display:block;transition:opacity .3s,transform .4s cubic-bezier(.16,1,.3,1);box-shadow:0 8px 40px rgba(0,0,0,.55)}
+#fbdCanvas.switching{opacity:.05;transform:scale(.97)}
+.status{position:absolute;right:28px;bottom:24px;display:none;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;font-size:10px;font-weight:700;border:1px solid var(--border);background:color-mix(in srgb,var(--surface) 80%,transparent);backdrop-filter:blur(8px)}
+.status.on{display:flex}
+.dot{width:6px;height:6px;border-radius:999px;background:var(--green);animation:blink 1.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.steps{display:flex;flex-direction:column}
+.step{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--divider)}
+.step:last-child{border:none}
+.snum{width:24px;height:24px;border-radius:999px;flex-shrink:0;display:grid;place-items:center;font:700 10px var(--mono);color:var(--muted);background:var(--surface2);border:1px solid var(--border)}
+.step.done .snum{background:var(--cyan);border-color:var(--cyan);color:#07090f}
+.step.sym .snum{background:var(--violet);border-color:var(--violet);color:#fff}
+.stitle{font-size:12px;font-weight:700;margin-bottom:2px}
+.sdesc{font-size:11px;color:var(--muted);line-height:1.6}
+.math{margin-top:5px;padding:6px 10px;border-radius:7px;background:var(--surface2);border-left:3px solid var(--cyan);font:11px var(--mono);color:var(--cyan);line-height:1.9}
+.math.sm{border-left-color:var(--violet);color:var(--violet)}
+.eqbox{padding:14px 16px;border-radius:12px;background:linear-gradient(135deg,rgba(56,189,248,.05),rgba(167,139,250,.05));border:1px solid rgba(56,189,248,.2);font:13px/1.9 var(--mono);word-break:break-all}
+.case-banner{padding:9px 12px;border-radius:9px;font-size:11px;line-height:1.6;margin-bottom:10px}
+.cb-warn{background:var(--orange-glow);border:1px solid rgba(251,146,60,.3);color:var(--orange)}
+.cb-info{background:var(--cyan-glow);border:1px solid rgba(56,189,248,.3);color:var(--cyan)}
+.cb-sym{background:var(--violet-glow);border:1px solid rgba(167,139,250,.3);color:var(--violet)}
+.cb-rose{background:var(--rose-glow);border:1px solid rgba(251,113,133,.3);color:var(--rose)}
+.cb-green{background:var(--green-glow);border:1px solid rgba(52,211,153,.3);color:var(--green)}
+.notice{padding:12px;border-radius:10px;background:var(--surface2);border:1px solid var(--border);font-size:11px;color:var(--muted);line-height:1.7}
+.help{font-size:10px;color:var(--muted);line-height:1.7;background:var(--surface2);border:1px solid var(--border);padding:9px 11px;border-radius:9px;margin-top:8px}
+.help b{color:var(--cyan)}
+
+@media(max-width:960px){.layout{grid-template-columns:1fr}.sidebar{border-right:none;border-bottom:1px solid var(--border)}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="brand">
+    <div class="logo">SM</div>
+    <div>
+      <div class="brand-name">StaticsMaster</div>
+      <div class="brand-sub">TRAILER HITCH · MOMENT ABOUT POINT O</div>
+    </div>
+  </div>
+  <div class="hdr-r">
+    <div class="pill">Statics</div>
+    <div class="pill sym-pill" id="modeTag">NUMERIC</div>
+    <button class="icon-btn" id="themeBtn" title="Toggle theme">
+      <svg id="themeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+    </button>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="sidebar">
+  <div class="card card-pad">
+    <div class="card-head">
+      <div class="ibox ib-cyan">🔧</div>
+      <div>
+        <div class="ct">Inputs — Numbers OR Any Symbol</div>
+        <div class="cs">Problem 2/42 · Moment of F about O</div>
+      </div>
+    </div>
+
+    <div class="slabel">Applied Force</div>
+    <div class="field-row">
+      <div class="field">
+        <label>Force F <span class="utag utag-c">N / sym</span></label>
+        <div class="iw"><input id="inp_F" value="500" placeholder="500 or F"></div>
+      </div>
+      <div class="field">
+        <label>Angle φ from vertical <span class="utag utag-o">deg / sym</span></label>
+        <div class="iw"><input id="inp_phi" value="30" placeholder="30 or φ"></div>
+      </div>
+    </div>
+    <div class="help"><b>Angle φ</b> is measured from the <b>vertical axis</b> (as in the diagram). At φ = 30°: F has a horizontal component = F·sin(φ) and a vertical (downward) component = F·cos(φ).</div>
+
+    <div class="slabel">Geometry (mm or symbol)</div>
+    <div class="field-row">
+      <div class="field">
+        <label>Horiz dist A→O <span class="utag utag-c">mm / sym</span></label>
+        <div class="iw"><input id="inp_dx" value="275" placeholder="275 or d"></div>
+      </div>
+      <div class="field">
+        <label>Ball radius r_ball <span class="utag utag-v">mm / sym</span></label>
+        <div class="iw"><input id="inp_rball" value="32" placeholder="32 or r"></div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Vertical drop A→O <span class="utag utag-y">mm / sym</span></label>
+      <div class="iw"><input id="inp_ho" value="38" placeholder="38 or h_o"></div>
+    </div>
+
+    <div class="help">
+      <b>Geometry (Problem 2/42):</b><br>
+      · <b>Ball radius</b> = 32 mm — radius of the hitch ball (A is at ball centre)<br>
+      · <b>Horiz A→O</b> = 275 mm — horizontal distance from ball centre A to O<br>
+      · <b>Vertical drop A→O</b> = 38 mm — O is 38 mm below the ball centre A<br>
+      · So: moment arm for F·sinφ (horiz comp) = 38 mm (vert dist A→O)<br>
+      · moment arm for F·cosφ (vert comp) = 275 mm (horiz dist A→O)<br>
+      · <b>Both moments are CCW → M_O = F·cosφ·0.275 + F·sinφ·0.038</b>
+    </div>
+
+    <button class="solve-btn" id="solveBtn">⚡ Solve &amp; Animate</button>
+
+    <div class="warn-widget" id="warnWidget">
+      <div class="warn-accent"></div>
+      <div class="warn-text-wrap">
+        <div class="warn-title">⚠ Input Warning</div>
+        <div class="warn-line" id="warnLines"></div>
+      </div>
+    </div>
+    <div class="errmsg" id="errMsg"></div>
+    <div class="sym-banner" id="symBanner">🔣 <strong>Symbolic mode</strong> — General formula shown. FBD uses representative proportions.</div>
+  </div>
+
+  <div class="card card-pad" id="resultCard" style="display:none">
+    <div class="card-head">
+      <div class="ibox ib-green">✓</div>
+      <div><div class="ct">Results</div><div class="cs">ΣM_O = F·cosφ·dx + F·sinφ·h_o</div></div>
+    </div>
+    <div id="caseBanner" style="display:none"></div>
+    <div class="rg">
+      <div class="chip"><div class="chip-acc"></div><div class="ck">F·sin φ (horiz comp)</div><div class="cv" id="r_Fx">—</div><div class="cu">N</div></div>
+      <div class="chip"><div class="chip-acc"></div><div class="ck">F·cos φ (vert comp)</div><div class="cv" id="r_Fy">—</div><div class="cu">N</div></div>
+      <div class="chip"><div class="chip-acc"></div><div class="ck">Horiz arm dx (A→O)</div><div class="cv" id="r_dx">—</div><div class="cu">m</div></div>
+      <div class="chip"><div class="chip-acc"></div><div class="ck">Vert arm h_o (A→O)</div><div class="cv" id="r_ho">—</div><div class="cu">m</div></div>
+      <div class="chip"><div class="chip-acc"></div><div class="ck">M₁ = F·cosφ · dx</div><div class="cv" id="r_M1">—</div><div class="cu">N·m (CCW)</div></div>
+      <div class="chip"><div class="chip-acc"></div><div class="ck">M₂ = F·sinφ · h_o</div><div class="cv" id="r_M2">—</div><div class="cu">N·m (CCW)</div></div>
+      <div class="chip big" id="r_chip_Mo"><div class="chip-acc"></div><div class="ck">Total Moment M_O = M₁ + M₂</div><div class="cv" id="r_Mo">—</div><div class="cu" id="r_Mo_unit">N·m</div></div>
+    </div>
+  </div>
+</aside>
+
+<main class="main-col">
+  <section class="card">
+    <div class="fbd-header">
+      <div>
+        <div class="ct">Free Body Diagram — Trailer Hitch (Problem 2/42)</div>
+        <div class="cs">Animated · Numeric + Symbolic · Matches textbook diagram exactly</div>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-tab="fbd">Full FBD</button>
+        <button class="tab" data-tab="geom">Geometry</button>
+        <button class="tab" data-tab="moment">Moment Arm</button>
+      </div>
+    </div>
+    <div class="canvas-zone" style="min-height:560px">
+      <canvas id="fbdCanvas" width="940" height="540"></canvas>
+      <div class="status" id="statusBadge"><span class="dot"></span><span>Drawing…</span></div>
+    </div>
+  </section>
+
+  <section class="card card-pad">
+    <div class="card-head">
+      <div class="ibox ib-orange">📝</div>
+      <div><div class="ct">Step-by-Step Solution</div><div class="cs">Scalar method: M_O = Σ(F × d)</div></div>
+    </div>
+    <div id="stepsWrap" class="notice">Enter values above and click <strong>⚡ Solve &amp; Animate</strong></div>
+  </section>
+
+  <section class="card card-pad">
+    <div class="card-head">
+      <div class="ibox ib-violet">∑</div>
+      <div><div class="ct">Moment Equation</div><div class="cs">ΣM_O = F·cosφ·dx + F·sinφ·h_o  (CCW positive)</div></div>
+    </div>
+    <div class="eqbox" id="eqBox">M_O = F·cosφ·dx + F·sinφ·h_o</div>
+  </section>
+</main>
+</div>
+
+<script>
+/* ══ THEME ══ */
+const root=document.documentElement; let dark=true;
+function setIcon(){
+  document.getElementById('themeIcon').innerHTML=dark
+    ?'<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>'
+    :'<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+}
+setIcon();
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  dark=!dark;root.setAttribute('data-theme',dark?'dark':'light');setIcon();
+  if(window._P)animateTab(window._P,window._tab||'fbd',true);else drawPlaceholder();
+});
+
+function TH(){
+  return dark?{
+    bg:'#07090f',cvs:'#0d1117',text:'#e2eeff',muted:'#8ba3c9',faint:'#4a607e',
+    hitchBody:'#1e3a5f',hitchLine:'#38bdf8',hitchFill:'rgba(30,58,95,0.7)',
+    ground:'#1e293b',gndL:'#334155',
+    force:'#34d399',forceComp:'#6ee7b7',
+    moment:'#fb923c',momentCCW:'#34d399',momentCW:'#fb7185',
+    dim:'#a78bfa',arm:'#fbbf24',pt:'#38bdf8',ptO:'#fb7185',
+    ball:'#94a3b8',ballStroke:'#e2eeff',
+    grid:'rgba(56,189,248,.04)',
+    box:'rgba(13,17,23,.92)',boxB:'rgba(56,189,248,.28)',
+    textBg:'rgba(13,17,23,0.82)'
+  }:{
+    bg:'#f0f4fa',cvs:'#ffffff',text:'#0f172a',muted:'#4b6b96',faint:'#94a3b8',
+    hitchBody:'#bfdbfe',hitchLine:'#0284c7',hitchFill:'rgba(191,219,254,0.7)',
+    ground:'#e2e8f0',gndL:'#94a3b8',
+    force:'#059669',forceComp:'#34d399',
+    moment:'#ea580c',momentCCW:'#059669',momentCW:'#e11d48',
+    dim:'#7c3aed',arm:'#d97706',pt:'#0284c7',ptO:'#e11d48',
+    ball:'#94a3b8',ballStroke:'#0f172a',
+    grid:'rgba(14,80,180,.04)',
+    box:'rgba(255,255,255,.95)',boxB:'rgba(14,80,180,.25)',
+    textBg:'rgba(255,255,255,0.82)'
+  };
+}
+
+/* ══ PARSE ══ */
+function parseV(id){
+  const raw=(document.getElementById(id).value||'').trim();
+  if(!raw)return null;
+  const n=parseFloat(raw);
+  if(!isNaN(n))return{isNum:true,num:n,str:raw};
+  return{isNum:false,num:null,str:raw};
+}
+function num(v,fb=0){return(v&&v.isNum)?v.num:fb;}
+function str(v,fb='?'){return v?v.str:fb;}
+function isN(v){return v&&v.isNum;}
+function fmtN(v,d=3){if(!isFinite(v))return '∞';return Number(v).toFixed(d).replace(/\.?0+$/,'');}
+function fmt(v,d=3){if(v===null||v===undefined)return '?';if(!isFinite(v))return '∞';return Number(v).toFixed(d);}
+
+function compute(){
+  const vF=parseV('inp_F'), vPhi=parseV('inp_phi');
+  const vDx=parseV('inp_dx'), vRb=parseV('inp_rball'), vHo=parseV('inp_ho');
+  if(!vF||!vPhi||!vDx||!vRb||!vHo)return null;
+
+  const allNum=[vF,vPhi,vDx,vRb,vHo].every(v=>v.isNum);
+
+  const Fv   = num(vF,  500);
+  const phiDeg = num(vPhi, 30);
+  const dxMm = num(vDx, 275);
+  const rbMm = num(vRb,  32);  // ball radius — drawing only
+  const hoMm = num(vHo,  38);  // vertical distance A above O
+
+  const phiR = phiDeg * Math.PI / 180;
+  const dxM  = dxMm / 1000;
+  const hoM  = hoMm / 1000;
+
+  // Force components (Angle from VERTICAL exactly as per requirement)
+  const Fhoriz = allNum ? Fv * Math.sin(phiR) : null; // F·sinφ (horizontal)
+  const Fvert  = allNum ? Fv * Math.cos(phiR) : null; // F·cosφ (vertical downward)
+
+  // Moment contributions (both CCW)
+  const M1_num = allNum ? Fvert  * dxM : null; // F·cosφ·dx  (vertical comp × horiz arm)
+  const M2_num = allNum ? Fhoriz * hoM : null; // F·sinφ·h_o (horiz comp × vert arm)
+  const Mo_num = allNum ? M1_num + M2_num : null;
+
+  // Symbolic strings
+  const sF  = isN(vF)  ? fmtN(Fv,0)      : str(vF);
+  const sPhi= isN(vPhi)? `${fmtN(phiDeg,1)}°` : str(vPhi);
+  const sDx = isN(vDx) ? fmtN(dxM,4)+'m' : str(vDx);
+  const sHo = isN(vHo) ? fmtN(hoM,4)+'m' : str(vHo);
+
+  const zeroF    = isN(vF)   && Math.abs(Fv)   < 1e-9;
+  const zeroGeom = isN(vDx)  && isN(vHo) && Math.abs(dxMm)<1e-9 && Math.abs(hoMm)<1e-9;
+  const zeroMo   = allNum && Math.abs(Mo_num) < 1e-9;
+  const negF     = isN(vF)   && Fv < 0;
+  const negDx    = isN(vDx)  && dxMm < 0;
+  const negHo    = isN(vHo)  && hoMm < 0;
+  const negRb    = isN(vRb)  && rbMm < 0;
+  const largePhi = isN(vPhi) && Math.abs(phiDeg) > 90 && Math.abs(phiDeg) < 270;
+
+  return{
+    vF,vPhi,vDx,vRb,vHo,allNum,symbolic:!allNum,
+    Fv,phiDeg,phiR,dxMm,rbMm,hoMm,dxM,hoM,
+    Fhoriz,Fvert,M1_num,M2_num,Mo_num,
+    sF,sPhi,sDx,sHo,
+    zeroF,zeroGeom,zeroMo,negF,negDx,negHo,negRb,largePhi
+  };
+}
+
+(function initWarn(){
+  const widget=document.getElementById('warnWidget');
+  const linesEl=document.getElementById('warnLines');
+  const FIELDS=['inp_F','inp_phi','inp_dx','inp_rball','inp_ho'];
+
+  function getN(id){
+    const v=parseFloat((document.getElementById(id)||{value:''}).value.trim());
+    return isNaN(v)?null:v;
+  }
+
+  function check(){
+    const lines=[];
+    FIELDS.forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('err');});
+
+    const F=getN('inp_F');
+    const phi=getN('inp_phi');
+    const dx=getN('inp_dx');
+    const rb=getN('inp_rball');
+    const ho=getN('inp_ho');
+
+    if(F!==null && F===0){ lines.push('ℹ️ <b>F = 0 N</b> → Moment M_O = 0 N·m regardless of geometry. No force applied.'); }
+    if(F!==null && F<0){ document.getElementById('inp_F').classList.add('err'); lines.push('❌ <b>Negative F</b> is physically invalid for this problem. Force magnitude must be > 0 N. Enter a positive value.'); }
+    if(phi!==null && (phi<-360||phi>360)){ document.getElementById('inp_phi').classList.add('err'); lines.push('❌ <b>Angle φ outside [−360°, 360°]</b>. Please enter an equivalent angle in range.'); }
+    if(phi!==null && Math.abs(phi)>90 && Math.abs(phi)<270){ lines.push('⚠️ <b>|φ| > 90°</b>: Force has an upward vertical component — this reverses M₁. Verify this matches your setup.'); }
+    if(phi!==null && phi===0){ lines.push('ℹ️ <b>φ = 0°</b>: Force is purely vertical. M₂ (horizontal comp contribution) = 0. M_O = F·dx only.'); }
+    if(phi!==null && Math.abs(phi)===90){ lines.push('ℹ️ <b>φ = 90°</b>: Force is purely horizontal. M₁ (vertical comp contribution) = 0. M_O = F·h_o only.'); }
+    if(dx!==null && dx<0){ document.getElementById('inp_dx').classList.add('err'); lines.push('❌ <b>Negative horizontal distance dx</b> is invalid. dx must be ≥ 0 mm. (Use the direction dropdown for sign convention instead.)'); }
+    if(dx!==null && dx===0 && (ho===null||ho!==0)){ lines.push('⚠️ <b>dx = 0</b>: A is directly above O. Vertical force F·cosφ produces no moment. Only F·sinφ·h_o contributes.'); }
+    if(rb!==null && rb<0){ document.getElementById('inp_rball').classList.add('err'); lines.push('❌ <b>Negative ball radius</b> is physically impossible. Ball radius must be > 0 mm.'); }
+    if(rb!==null && rb===0){ lines.push('ℹ️ <b>Ball radius = 0</b>: Treated as point load at A. This is fine for moment calculation (ball radius does not affect M_O).'); }
+    if(ho!==null && ho<0){ document.getElementById('inp_ho').classList.add('err'); lines.push('❌ <b>Negative vertical distance h_o</b> is invalid for this configuration. h_o = vertical drop from A down to O must be ≥ 0 mm.'); }
+    if(ho!==null && ho===0 && (dx===null||dx!==0)){ lines.push('⚠️ <b>h_o = 0</b>: A and O at same height. Horizontal force F·sinφ produces no moment. Only F·cosφ·dx contributes.'); }
+    if(dx!==null && ho!==null && Math.abs(dx)<1e-9 && Math.abs(ho)<1e-9){
+      document.getElementById('inp_dx').classList.add('err'); document.getElementById('inp_ho').classList.add('err');
+      lines.push('❌ <b>Both dx = 0 and h_o = 0</b>: Point A coincides with O. Moment M_O = 0 regardless of F or φ.');
+    }
+
+    if(lines.length>0){linesEl.innerHTML=lines.join('<br>');widget.classList.add('visible');}
+    else{widget.classList.remove('visible');}
+  }
+
+  FIELDS.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){el.addEventListener('input',check);el.addEventListener('change',check);}
+  });
+  check();
+})();
+
+function validate(){
+  const ids=['inp_F','inp_phi','inp_dx','inp_rball','inp_ho'];
+  const em=document.getElementById('errMsg');
+  em.style.display='none';
+  ids.forEach(id=>document.getElementById(id).classList.remove('err'));
+
+  for(const id of ids){
+    const el=document.getElementById(id);
+    if(!(el.value||'').trim()){
+      el.classList.add('err');
+      const labels={'inp_F':'Force F','inp_phi':'Angle φ','inp_dx':'Horiz distance dx','inp_rball':'Ball radius','inp_ho':'Vertical distance h_o'};
+      em.textContent=`"${labels[id]}" is empty. Enter a number or a symbol.`;
+      em.style.display='block';return false;
+    }
+  }
+
+  const F=parseFloat(document.getElementById('inp_F').value);
+  const dx=parseFloat(document.getElementById('inp_dx').value);
+  const rb=parseFloat(document.getElementById('inp_rball').value);
+  const ho=parseFloat(document.getElementById('inp_ho').value);
+  const phi=parseFloat(document.getElementById('inp_phi').value);
+
+  if(!isNaN(F) && F<0){ document.getElementById('inp_F').classList.add('err'); em.textContent='❌ Force F cannot be negative. Enter a positive magnitude (direction is determined by φ and the sign convention).'; em.style.display='block';return false; }
+  if(!isNaN(dx) && dx<0){ document.getElementById('inp_dx').classList.add('err'); em.textContent='❌ Horizontal distance dx cannot be negative. Enter a positive value ≥ 0 mm.'; em.style.display='block';return false; }
+  if(!isNaN(rb) && rb<0){ document.getElementById('inp_rball').classList.add('err'); em.textContent='❌ Ball radius cannot be negative. Enter a positive value ≥ 0 mm.'; em.style.display='block';return false; }
+  if(!isNaN(ho) && ho<0){ document.getElementById('inp_ho').classList.add('err'); em.textContent='❌ Vertical distance h_o cannot be negative. Enter a positive value ≥ 0 mm.'; em.style.display='block';return false; }
+  if(!isNaN(phi) && (phi<-360||phi>360)){ document.getElementById('inp_phi').classList.add('err'); em.textContent='❌ Angle φ must be between −360° and +360°.'; em.style.display='block';return false; }
+  return true;
+}
+
+function styleInputs(){
+  ['inp_F','inp_phi','inp_dx','inp_rball','inp_ho'].forEach(id=>{
+    const el=document.getElementById(id);
+    const raw=(el.value||'').trim();
+    el.classList.toggle('sym',raw!==''&&isNaN(parseFloat(raw)));
+  });
+}
+document.querySelectorAll('.iw input').forEach(el=>el.addEventListener('input',styleInputs));
+document.querySelectorAll('.iw input').forEach(el=>el.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('solveBtn').click()}));
+
+function showResults(p){
+  document.getElementById('resultCard').style.display='block';
+  document.getElementById('modeTag').textContent=p.symbolic?'SYMBOLIC':'NUMERIC';
+  document.getElementById('symBanner').classList.toggle('on',p.symbolic);
+
+  const banner=document.getElementById('caseBanner'); let bh='';
+  if(p.symbolic){
+    bh=`<div class="case-banner cb-sym">🔣 Symbolic mode — general formula shown. FBD uses representative proportions.</div>`;
+  } else if(p.zeroF){
+    bh=`<div class="case-banner cb-info">ℹ️ F = 0 N → M_O = 0 N·m. No force applied, no moment generated.</div>`;
+  } else if(p.zeroGeom){
+    bh=`<div class="case-banner cb-rose">❌ A coincides with O (dx = 0 and h_o = 0) → M_O = 0 regardless of F or φ.</div>`;
+  } else if(p.zeroMo && !p.zeroF && !p.zeroGeom){
+    bh=`<div class="case-banner cb-info">ℹ️ M_O = 0: The two moment contributions cancel exactly. Line of action of F passes through O.</div>`;
+  } else if(p.largePhi){
+    bh=`<div class="case-banner cb-warn">⚠️ |φ| > 90°: Force F has an upward vertical component — M₁ direction reverses. Verify against your diagram.</div>`;
+  }
+  banner.innerHTML=bh; banner.style.display=bh?'block':'none';
+
+  function sc(id,val){
+    const el=document.getElementById(id);
+    const isSym=typeof val==='string'&&isNaN(parseFloat(val))&&val!=='∞';
+    el.textContent=val; el.className='cv'+(isSym?' sym-val':'');
+  }
+
+  if(p.symbolic){
+    sc('r_Fx',`${p.sF}·sin(${p.sPhi})`);
+    sc('r_Fy',`${p.sF}·cos(${p.sPhi})`);
+    sc('r_dx',p.sDx);
+    sc('r_ho',p.sHo);
+    sc('r_M1',`${p.sF}·cos(${p.sPhi})·${p.sDx}`);
+    sc('r_M2',`${p.sF}·sin(${p.sPhi})·${p.sHo}`);
+    sc('r_Mo',`${p.sF}[cosφ·${p.sDx}+sinφ·${p.sHo}]`);
+    document.getElementById('r_Mo_unit').textContent='N·m (formula)';
+    document.getElementById('r_chip_Mo').className='chip big';
+  } else {
+    sc('r_Fx', fmt(p.Fhoriz,4));
+    sc('r_Fy', fmt(p.Fvert,4));
+    sc('r_dx', fmt(p.dxM,4));
+    sc('r_ho', fmt(p.hoM,4));
+    sc('r_M1', fmt(p.M1_num,4));
+    sc('r_M2', fmt(p.M2_num,4));
+    const dir = p.Mo_num>1e-9?' CCW ↺':p.Mo_num<-1e-9?' CW ↻':' (zero)';
+    sc('r_Mo', fmt(Math.abs(p.Mo_num),4)+dir);
+    document.getElementById('r_Mo_unit').textContent='N·m';
+    const chip=document.getElementById('r_chip_Mo');
+    chip.className='chip big'+(p.Mo_num>1e-9?' ccw':p.Mo_num<-1e-9?' cw':'');
+  }
+  buildEq(p); buildSteps(p);
+}
+
+function buildEq(p){
+  const gc=dark?'#34d399':'#059669';
+  const vc=dark?'#a78bfa':'#7c3aed';
+  const mc=dark?'#fb923c':'#ea580c';
+  const yc=dark?'#fbbf24':'#d97706';
+  let html;
+  if(p.symbolic){
+    html=`<span style="color:var(--muted)">M_O = F·cosφ·dx + F·sinφ·h_o  (CCW positive)</span><br>`+
+      `<span style="color:${yc}">d_x</span> = horizontal dist A→O  <span style="color:${yc}">h_o</span> = vertical dist A→O<br>`+
+      `<span style="color:${gc}">F_vert = F·cos(${p.sPhi})</span>  →  M₁ = F·cos(φ)·dx<br>`+
+      `<span style="color:${gc}">F_horiz = F·sin(${p.sPhi})</span>  →  M₂ = F·sin(φ)·h_o<br>`+
+      `<strong style="color:${mc}">M_O = ${p.sF}·cos(${p.sPhi})·${p.sDx} + ${p.sF}·sin(${p.sPhi})·${p.sHo}</strong>`;
+  } else {
+    const dir=p.Mo_num>1e-9?'CCW ↺':p.Mo_num<-1e-9?'CW ↻':'= 0';
+    const dCol=p.Mo_num>1e-9?'#34d399':p.Mo_num<-1e-9?'#fb7185':'#8ba3c9';
+    html=`<span style="color:var(--muted)">M_O = F·cosφ·dx + F·sinφ·h_o  (CCW positive, scalar method)</span><br><br>`+
+      `<span style="color:${gc}">F·cosφ</span> = ${fmt(p.Fv,0)}·cos(${fmt(p.phiDeg,1)}°) = <b>${fmt(p.Fvert,4)} N</b>  (vertical ↓ component)<br>`+
+      `<span style="color:${gc}">F·sinφ</span> = ${fmt(p.Fv,0)}·sin(${fmt(p.phiDeg,1)}°) = <b>${fmt(p.Fhoriz,4)} N</b>  (horizontal component)<br><br>`+
+      `<span style="color:${yc}">M₁</span> = ${fmt(p.Fvert,4)} × ${fmt(p.dxM,4)} = <b>${fmt(p.M1_num,4)} N·m</b>  (F·cosφ × dx, CCW ↺)<br>`+
+      `<span style="color:${yc}">M₂</span> = ${fmt(p.Fhoriz,4)} × ${fmt(p.hoM,4)} = <b>${fmt(p.M2_num,4)} N·m</b>  (F·sinφ × h_o, CCW ↺)<br><br>`+
+      `<strong style="color:${mc}">M_O = ${fmt(p.M1_num,4)} + ${fmt(p.M2_num,4)} = ${fmt(p.Mo_num,4)} N·m  <span style="color:${dCol}">${dir}</span></strong>`;
+  }
+  document.getElementById('eqBox').innerHTML=html;
+}
+
+function buildSteps(p){
+  let steps=[];
+  if(p.symbolic){
+    steps=[
+      {t:'1. Identify the system',d:'A = hitch ball centre (force application point). O = moment centre. F applied at A, angle φ from vertical.',m:`F = ${p.sF} N   φ = ${p.sPhi} from vertical`,s:1},
+      {t:'2. Resolve F into components',d:'Decompose F into vertical (F·cosφ ↓) and horizontal (F·sinφ →) components at A.',m:`F_vert  = ${p.sF}·cos(${p.sPhi})  (downward)\nF_horiz = ${p.sF}·sin(${p.sPhi})  (horizontal)`,s:1},
+      {t:'3. Identify moment arms',d:'For each component, the moment arm is the perpendicular distance to O.',m:`Arm for F_vert  = dx (horizontal distance A→O)\nArm for F_horiz = h_o (vertical distance A→O)`,s:1},
+      {t:'4. Check moment directions',d:'Both components produce CCW moments about O (verify by inspection).',m:`F_vert × dx → CCW ↺\nF_horiz × h_o → CCW ↺\nBoth add up → M_O = M₁ + M₂`,s:1},
+      {t:'5. Scalar moment formula',d:'M_O = F·cosφ·dx + F·sinφ·h_o  (both CCW, so both positive)',m:`M_O = ${p.sF}·cos(${p.sPhi})·${p.sDx} + ${p.sF}·sin(${p.sPhi})·${p.sHo}`,s:1},
+      {t:'6. Direction',d:'Since both M₁ and M₂ are positive (CCW), M_O > 0 for any physically valid input.',m:`Sign of M_O = positive (CCW) for standard config`,s:1}
+    ];
+  } else {
+    const dir=p.Mo_num>1e-9?'CCW ↺ (Counter-clockwise)':p.Mo_num<-1e-9?'CW ↻ (Clockwise)':'Zero — force line passes through O';
+    steps=[
+      {t:'1. Given data',d:`F = ${fmt(p.Fv,1)} N at φ = ${fmt(p.phiDeg,1)}° from vertical. Geometry: dx = ${fmt(p.dxMm,1)} mm, h_o = ${fmt(p.hoMm,1)} mm, r_ball = ${fmt(p.rbMm,1)} mm (for reference).`,
+        m:`F = ${fmt(p.Fv,1)} N\nφ = ${fmt(p.phiDeg,1)}°\ndx = ${fmt(p.dxMm,1)} mm = ${fmt(p.dxM,4)} m\nh_o = ${fmt(p.hoMm,1)} mm = ${fmt(p.hoM,4)} m`},
+      {t:'2. Resolve F into components',d:'Decompose force into vertical (downward) and horizontal components.',
+        m:`F·cosφ = ${fmt(p.Fv,1)}·cos(${fmt(p.phiDeg,1)}°) = ${fmt(p.Fvert,4)} N  ↓  (vertical)\nF·sinφ = ${fmt(p.Fv,1)}·sin(${fmt(p.phiDeg,1)}°) = ${fmt(p.Fhoriz,4)} N  →  (horizontal)`},
+      {t:'3. Moment contribution M₁ (from F·cosφ)',d:'Vertical component × horizontal arm = CCW moment.',
+        m:`M₁ = F·cosφ × dx\n   = ${fmt(p.Fvert,4)} × ${fmt(p.dxM,4)}\n   = ${fmt(p.M1_num,4)} N·m  (CCW ↺)`},
+      {t:'4. Moment contribution M₂ (from F·sinφ)',d:'Horizontal component × vertical arm = CCW moment.',
+        m:`M₂ = F·sinφ × h_o\n   = ${fmt(p.Fhoriz,4)} × ${fmt(p.hoM,4)}\n   = ${fmt(p.M2_num,4)} N·m  (CCW ↺)`},
+      {t:'5. Total moment M_O',d:'Both contributions are CCW (positive), so they add directly.',
+        m:`M_O = M₁ + M₂\n    = ${fmt(p.M1_num,4)} + ${fmt(p.M2_num,4)}\n    = ${fmt(p.Mo_num,4)} N·m`},
+      {t:'6. Final answer',d:'Magnitude and direction of M_O.',
+        m:`|M_O| = ${fmt(Math.abs(p.Mo_num),4)} N·m\nDirection: ${dir}`}
+    ];
+  }
+  document.getElementById('stepsWrap').innerHTML=`<div class="steps">${steps.map((s,i)=>`<div class="step ${s.s?'sym':'done'}"><div class="snum">${i+1}</div><div><div class="stitle">${s.t}</div><div class="sdesc">${s.d}</div><div class="math${s.s?' sm':''}">${s.m.replace(/\n/g,'<br>')}</div></div></div>`).join('')}</div>`;
+}
+
+function easeOut(x){return 1-Math.pow(1-Math.max(0,Math.min(1,x)),4);}
+function easeIO(x){x=Math.max(0,Math.min(1,x));return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;}
+function part(t,a,b){if(t<=a)return 0;if(t>=b)return 1;return easeOut((t-a)/(b-a));}
+
+function arw(x1,y1,x2,y2,col,prog,lbl,lx,ly,lw=3.5){
+  if(prog<=0)return;
+  const p=easeOut(prog);
+  const px=x1+(x2-x1)*p, py=y1+(y2-y1)*p;
+  ctx.save();ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=lw;ctx.lineCap='round';
+  ctx.shadowColor=col;ctx.shadowBlur=14;
+  ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(px,py);ctx.stroke();
+  if(prog>0.6){
+    const k=(prog-0.6)/0.4;
+    const ang=Math.atan2(y2-y1,x2-x1), hs=16;
+    ctx.globalAlpha=k;ctx.beginPath();ctx.moveTo(px,py);
+    ctx.lineTo(px-hs*Math.cos(ang-Math.PI/7),py-hs*Math.sin(ang-Math.PI/7));
+    ctx.lineTo(px-hs*Math.cos(ang+Math.PI/7),py-hs*Math.sin(ang+Math.PI/7));
+    ctx.closePath();ctx.fill();
+  }
+  if(lbl&&prog>0.82){
+    ctx.globalAlpha=(prog-0.82)/0.18;ctx.shadowBlur=0;
+    txtBox(lx??x2+8,ly??y2-8,lbl,col,'bold 14px Space Grotesk',ctx.globalAlpha);
+  }
+  ctx.restore();
+}
+
+function dot(x,y,col,r,lbl,prog,lx,ly){
+  if(prog<=0)return;const p=easeOut(prog);
+  ctx.save();ctx.globalAlpha=p;ctx.shadowColor=col;ctx.shadowBlur=18;
+  ctx.beginPath();ctx.arc(x,y,r*p,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();
+  if(lbl&&prog>0.7){
+    ctx.globalAlpha=(prog-0.7)/0.3;ctx.shadowBlur=0;
+    txtBox(lx??x+10,ly??y-12,lbl,col,'bold 13px Space Grotesk',ctx.globalAlpha);
+  }
+  ctx.restore();
+}
+
+function dash(x1,y1,x2,y2,col,prog=1,d=[8,5],w=2){
+  if(prog<=0)return;const p=easeOut(prog);
+  ctx.save();ctx.strokeStyle=col;ctx.lineWidth=w;ctx.setLineDash(d);ctx.lineCap='round';
+  ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x1+(x2-x1)*p,y1+(y2-y1)*p);ctx.stroke();ctx.restore();
+}
+
+function txtBox(x,y,s,col,font,a=1,align='left'){
+  if(a<=0)return;
+  const Th=TH();ctx.save();ctx.globalAlpha=Math.max(0,Math.min(1,a));
+  ctx.font=font||'12px Space Grotesk,sans-serif';
+  ctx.textAlign=align;ctx.textBaseline='middle';
+  const m=ctx.measureText(s);const w=m.width,h=parseInt(ctx.font,10)*1.2;
+  const padX=6,padY=3;let bx=x,by=y-h/2;
+  if(align==='center')bx=x-w/2;if(align==='right')bx=x-w;
+  ctx.fillStyle=Th.textBg;ctx.beginPath();ctx.roundRect(bx-padX,by-padY,w+padX*2,h+padY*2,5);ctx.fill();
+  ctx.fillStyle=col;ctx.fillText(s,x,y);ctx.restore();
+}
+
+function arcArrow(cx,cy,r,sa,ea,col,prog,lw=3,cwDraw=false){
+  if(prog<=0)return;const p=easeOut(prog);
+  ctx.save();ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.lineCap='round';
+  ctx.shadowColor=col;ctx.shadowBlur=10;
+  let span=cwDraw?(sa-ea+2*Math.PI)%(2*Math.PI):(ea-sa+2*Math.PI)%(2*Math.PI);
+  let endA=cwDraw?sa-span*p:sa+span*p;
+  ctx.beginPath();ctx.arc(cx,cy,r,sa,endA,cwDraw);ctx.stroke();
+  if(prog>0.7){
+    const k=(prog-0.7)/0.3;const tg=cwDraw?endA-Math.PI/2:endA+Math.PI/2;
+    const tx=cx+r*Math.cos(endA),ty=cy+r*Math.sin(endA);const hs=11;
+    ctx.globalAlpha=k;ctx.fillStyle=col;
+    ctx.beginPath();ctx.moveTo(tx,ty);
+    ctx.lineTo(tx-hs*Math.cos(tg-0.4),ty-hs*Math.sin(tg-0.4));
+    ctx.lineTo(tx-hs*Math.cos(tg+0.4),ty-hs*Math.sin(tg+0.4));
+    ctx.closePath();ctx.fill();
+  }
+  ctx.restore();
+}
+
+function getCoords(p){
+  const CW=canvas.width, CH=canvas.height;
+  const dxMm = p.allNum ? Math.abs(p.dxMm) : 275;
+  const rbMm  = p.allNum ? Math.abs(p.rbMm)  : 32;
+  const hoMm  = p.allNum ? Math.abs(p.hoMm)  : 38;
+
+  const scH = Math.min(CW * 0.42 / Math.max(dxMm,1), 2.8);
+  const scV = Math.min(CH * 0.20 / Math.max(hoMm,1), 4.0);
+  const sc  = Math.min(scH, scV, 2.8);
+
+  const Ox = CW * 0.70;
+  const Oy = CH * 0.58;
+
+  const Ax = Ox - dxMm * sc;
+  const Ay = Oy - hoMm * sc;
+  const ballR = Math.max(rbMm * sc, 16);
+  const barY = Oy;
+
+  return{Ox,Oy,Ax,Ay,barY,sc,ballR,CW,CH,
+    cfx: p.allNum ? Math.sin(p.phiR) : Math.sin(30*Math.PI/180),
+    cfy: p.allNum ? Math.cos(p.phiR) : Math.cos(30*Math.PI/180)
+  };
+}
+
+const canvas=document.getElementById('fbdCanvas');
+const ctx=canvas.getContext('2d');
+let _raf=null;
+window._tab='fbd'; window._P=null;
+
+function bgFill(){
+  const t=TH();ctx.fillStyle=t.cvs;ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.strokeStyle=t.grid;ctx.lineWidth=1;
+  for(let x=0;x<canvas.width;x+=32){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,canvas.height);ctx.stroke()}
+  for(let y=0;y<canvas.height;y+=32){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(canvas.width,y);ctx.stroke()}
+}
+
+function drawFBD(p,t){
+  bgFill();const Th=TH();const C=getCoords(p);
+  const t0=part(t,0,.12),t1=part(t,.08,.28),t2=part(t,.22,.42),
+        t3=part(t,.38,.58),t4=part(t,.52,.76),t5=part(t,.70,1.0);
+
+  ctx.save();ctx.globalAlpha=t0;
+  ctx.strokeStyle=Th.gndL;ctx.lineWidth=2;ctx.setLineDash([14,7]);
+  ctx.beginPath();ctx.moveTo(0,C.Oy+35);ctx.lineTo(C.CW,C.Oy+35);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle=Th.ground;ctx.globalAlpha=t0*0.4;
+  ctx.fillRect(0,C.Oy+35,C.CW,C.CH);
+  ctx.restore();
+
+  ctx.save();ctx.globalAlpha=easeIO(t1);
+  ctx.lineWidth=10;ctx.lineCap='round';ctx.lineJoin='round';
+  ctx.shadowColor=Th.hitchLine;ctx.shadowBlur=8;
+
+  const barTop = C.Ay + C.ballR;
+  const barBot = C.Oy + 12;
+  const barLeft = C.Ax;
+  const barRight = C.Ox + 24;
+
+  ctx.fillStyle = Th.hitchFill;
+  ctx.strokeStyle = Th.hitchLine;
+  ctx.lineWidth = 2;
+  ctx.shadowBlur = 0;
+  ctx.beginPath();
+  ctx.roundRect(barLeft, barTop, barRight - barLeft, barBot - barTop, 4);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.roundRect(C.Ox - 6, C.Oy - 20, 18, 44, 4);
+  ctx.fill();
+  ctx.stroke();
+  ctx.restore();
+
+  ctx.save();ctx.globalAlpha=easeIO(t1);
+  ctx.shadowColor=Th.ball;ctx.shadowBlur=16;
+
+  const grad=ctx.createRadialGradient(C.Ax-C.ballR*0.3,C.Ay-C.ballR*0.3,C.ballR*0.1,C.Ax,C.Ay,C.ballR);
+  grad.addColorStop(0,dark?'#c0c8d8':'#f0f4fa');
+  grad.addColorStop(0.5,dark?'#6b7a94':'#94a3b8');
+  grad.addColorStop(1,dark?'#374151':'#64748b');
+  ctx.beginPath();ctx.arc(C.Ax,C.Ay,C.ballR,0,Math.PI*2);
+  ctx.fillStyle=grad;ctx.fill();
+  ctx.strokeStyle=dark?'#94a3b8':'#334155';ctx.lineWidth=2.5;ctx.stroke();
+
+  ctx.beginPath();ctx.arc(C.Ax-C.ballR*0.28,C.Ay-C.ballR*0.28,C.ballR*0.22,0,Math.PI*2);
+  ctx.fillStyle=dark?'rgba(255,255,255,0.28)':'rgba(255,255,255,0.55)';ctx.fill();
+  ctx.restore();
+
+  dot(C.Ax,C.Ay,Th.pt,6,'A',t2,C.Ax-26,C.Ay-C.ballR-16);
+  dot(C.Ox,C.Oy,Th.ptO,7,'O',t2,C.Ox+14,C.Oy+16);
+
+  const dimY = C.Oy + 58;
+  dash(C.Ax, dimY, C.Ox, dimY, Th.dim, t3, [7,4], 2);
+  if(t3>0.3){
+    const k=(t3-0.3)/0.7;
+    ctx.save();ctx.globalAlpha=k;ctx.strokeStyle=Th.dim;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(C.Ax,dimY-6);ctx.lineTo(C.Ax,dimY+6);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(C.Ox,dimY-6);ctx.lineTo(C.Ox,dimY+6);ctx.stroke();
+    ctx.restore();
+    txtBox((C.Ax+C.Ox)/2, dimY+16, `${p.allNum?fmt(p.dxMm,0)+' mm':'dx'}`, Th.dim,'bold 13px Space Mono',k,'center');
+  }
+
+  const dimX2 = C.Ox + 52;
+  dash(C.Ax, C.Ay, dimX2, C.Ay, Th.arm, t3, [4,3], 1.5);
+  dash(C.Ox, C.Oy, dimX2, C.Oy, Th.arm, t3, [4,3], 1.5);
+  dash(dimX2, C.Ay, dimX2, C.Oy, Th.arm, t3, [6,4], 2);
+  if(t3>0.5){
+    const k=(t3-0.5)/0.5;
+    ctx.save();ctx.globalAlpha=k;ctx.strokeStyle=Th.arm;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(dimX2-5,C.Ay);ctx.lineTo(dimX2+5,C.Ay);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(dimX2-5,C.Oy);ctx.lineTo(dimX2+5,C.Oy);ctx.stroke();
+    ctx.restore();
+    txtBox(dimX2+8,(C.Ay+C.Oy)/2, `${p.allNum?fmt(p.hoMm,0)+' mm':'h_o'}`, Th.arm,'bold 13px Space Mono',k);
+  }
+
+  if(t3>0.6){
+    const k=(t3-0.6)/0.4;
+    const brlx=C.Ax-C.ballR-8;
+    dash(C.Ax,C.Ay,brlx,C.Ay,Th.muted,k,[3,3],1.5);
+    txtBox(brlx-4,C.Ay-12, `r=${p.allNum?fmt(p.rbMm,0)+' mm':'r_ball'}`, Th.muted??'#8ba3c9','11px Space Mono',k,'right');
+  }
+
+  const fLen = 130;
+  const fex = C.cfx * fLen;
+  const fey = C.cfy * fLen;
+  arw(C.Ax, C.Ay, C.Ax+fex, C.Ay+fey, Th.force, t4, `F=${p.allNum?fmt(p.Fv,0)+' N':'F'}`, C.Ax+fex+10, C.Ay+fey+4, 4);
+
+  if(t4>0.55){
+    const k=(t4-0.55)/0.45;
+    const forceAng = Math.atan2(fey, fex);
+    const vertAng  = -Math.PI/2;
+    const arcR = 44;
+    ctx.save();ctx.globalAlpha=k;
+    ctx.strokeStyle=Th.muted;ctx.lineWidth=1.8;ctx.setLineDash([4,3]);
+    ctx.beginPath();ctx.moveTo(C.Ax,C.Ay);ctx.lineTo(C.Ax,C.Ay-65);ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.strokeStyle=Th.dim;ctx.lineWidth=2;
+    ctx.beginPath();ctx.arc(C.Ax,C.Ay,arcR,vertAng,forceAng);ctx.stroke();
+    const midAng=(vertAng+forceAng)/2;
+    txtBox(C.Ax+arcR*Math.cos(midAng)+6,C.Ay+arcR*Math.sin(midAng), `φ=${p.allNum?fmt(p.phiDeg,0)+'°':p.sPhi}`, Th.dim,'bold 12px Space Mono',k);
+    ctx.restore();
+  }
+
+  if(t5>0){
+    const mCol = p.allNum ? (p.Mo_num>1e-9 ? Th.momentCCW : p.Mo_num<-1e-9 ? Th.momentCW : Th.moment) : Th.moment;
+    const ccwDraw = p.allNum ? p.Mo_num<0 : false;
+    arcArrow(C.Ox, C.Oy, 50, Math.PI*0.3, Math.PI*1.7, mCol, t5, 4, ccwDraw);
+    const dirStr = p.allNum?(p.Mo_num>1e-9?'CCW ↺':p.Mo_num<-1e-9?'CW ↻':'= 0'):'';
+    const moStr = p.allNum ? `M_O = ${fmt(Math.abs(p.Mo_num),2)} N·m ${dirStr}` : `M_O = F·cosφ·dx + F·sinφ·h_o`;
+    txtBox(C.Ox+62, C.Oy+4, moStr, mCol, 'bold 13px Space Grotesk', t5);
+  }
+
+  if(t5>0.4){
+    const k=(t5-0.4)/0.6;
+    const rw=252, rh=p.symbolic?66:102;
+    const rx=C.CW-rw-14, ry=14;
+    ctx.save();ctx.globalAlpha=k;
+    ctx.fillStyle=Th.box;ctx.strokeStyle=Th.boxB;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.roundRect(rx,ry,rw,rh,13);ctx.fill();ctx.stroke();
+    const mCol=p.allNum?(p.Mo_num>0?Th.momentCCW:p.Mo_num<0?Th.momentCW:Th.moment):Th.moment;
+    if(p.symbolic){
+      txtBox(rx+rw/2,ry+22,'M_O = F·cosφ·dx + F·sinφ·h_o',Th.muted,'bold 11px Space Mono',k,'center');
+      txtBox(rx+rw/2,ry+48,'(both terms CCW ↺)',mCol,'bold 13px Space Grotesk',k,'center');
+    } else {
+      const dir=p.Mo_num>1e-9?'CCW ↺':p.Mo_num<-1e-9?'CW ↻':'= 0';
+      txtBox(rx+rw/2,ry+18,`F=${fmt(p.Fv,0)} N  φ=${fmt(p.phiDeg,0)}°  dx=${fmt(p.dxMm,0)}mm  h_o=${fmt(p.hoMm,0)}mm`,Th.muted,'11px Space Grotesk',k,'center');
+      txtBox(rx+rw/2,ry+40,`M₁=${fmt(p.M1_num,4)}  M₂=${fmt(p.M2_num,4)} N·m`,Th.muted??'#8ba3c9','11px Space Mono',k,'center');
+      txtBox(rx+rw/2,ry+62,`M_O = ${fmt(Math.abs(p.Mo_num),4)} N·m`,mCol,'bold 17px Space Mono',k,'center');
+      txtBox(rx+rw/2,ry+86,dir,mCol,'bold 13px Space Mono',k,'center');
+    }
+    ctx.restore();
+  }
+
+  const legend=[
+    {c:Th.force,      l:'F — Applied force at A (hitch ball)'},
+    {c:Th.dim,        l:'φ — Angle of F from vertical'},
+    {c:Th.dim,        l:'dx — Horizontal distance A→O (275 mm)'},
+    {c:Th.arm,        l:'h_o — Vertical distance A→O (38 mm)'},
+    {c:p.allNum?(p.Mo_num>0?Th.momentCCW:Th.momentCW):Th.moment, l:'M_O — Moment about O'},
+  ];
+  ctx.save();ctx.globalAlpha=t5;
+  legend.forEach((it,i)=>{
+    ctx.shadowColor=it.c;ctx.shadowBlur=4;
+    ctx.fillStyle=it.c;ctx.fillRect(14,20+i*20,10,3);
+    ctx.shadowBlur=0;ctx.fillStyle=Th.text;
+    ctx.font='10px Space Grotesk,sans-serif';ctx.textBaseline='middle';
+    ctx.fillText(it.l,28,22+i*20);
+  });
+  ctx.restore();
+}
+
+function drawGeom(p,t){
+  bgFill();const Th=TH();const C=getCoords(p);
+  const t0=part(t,0,.12),t1=part(t,.10,.28),t2=part(t,.24,.48),
+        t3=part(t,.44,.70),t4=part(t,.66,1.0);
+
+  dash(0,C.Oy+35,C.CW,C.Oy+35,Th.gndL,t0,[12,6],1.5);
+  if(t0>0.5) txtBox(C.CW-70,C.Oy+24,'Ground',Th.muted,'11px Space Grotesk',(t0-0.5)/0.5);
+
+  dot(C.Ax,C.Ay,Th.pt,6,'A  (ball centre, force point)',t1,C.Ax+10,C.Ay-20);
+  dot(C.Ox,C.Oy,Th.ptO,7,'O  (moment centre)',t1,C.Ox+12,C.Oy+18);
+
+  dash(C.Ax,C.Oy+55,C.Ox,C.Oy+55,Th.dim,t2,[7,4],2.5);
+  if(t2>0.5){
+    const k=(t2-0.5)/0.5;
+    txtBox((C.Ax+C.Ox)/2,C.Oy+74,`dx = ${p.allNum?fmt(p.dxMm,0)+' mm':p.sDx}`,Th.dim,'bold 14px Space Mono',k,'center');
+    ctx.save();ctx.globalAlpha=k;ctx.strokeStyle=Th.dim;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(C.Ax,C.Oy+49);ctx.lineTo(C.Ax,C.Oy+61);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(C.Ox,C.Oy+49);ctx.lineTo(C.Ox,C.Oy+61);ctx.stroke();
+    ctx.restore();
+  }
+
+  const vdx = C.Ox+55;
+  dash(C.Ax,C.Ay,vdx,C.Ay,Th.arm,t2,[4,3],1.5);
+  dash(C.Ox,C.Oy,vdx,C.Oy,Th.arm,t2,[4,3],1.5);
+  dash(vdx,C.Ay,vdx,C.Oy,Th.arm,t3,[6,4],2.5);
+  if(t3>0.4){
+    const k=(t3-0.4)/0.6;
+    txtBox(vdx+10,(C.Ay+C.Oy)/2,`h_o = ${p.allNum?fmt(p.hoMm,0)+' mm':p.sHo}`,Th.arm,'bold 13px Space Mono',k);
+    ctx.save();ctx.globalAlpha=k;ctx.strokeStyle=Th.arm;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(vdx-5,C.Ay);ctx.lineTo(vdx+5,C.Ay);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(vdx-5,C.Oy);ctx.lineTo(vdx+5,C.Oy);ctx.stroke();
+    ctx.restore();
+  }
+
+  if(t2>0.3){
+    const k=(t2-0.3)/0.7;
+    dash(C.Ax,C.Ay,C.Ax-C.ballR,C.Ay,Th.muted,k,[3,3],1.5);
+    txtBox(C.Ax-C.ballR-6,C.Ay-14,`r_ball = ${p.allNum?fmt(p.rbMm,0)+' mm':'r'}`,Th.muted??'#8ba3c9','11px Space Mono',k,'right');
+  }
+
+  if(t4>0){
+    arw(C.Ox,C.Oy,C.Ax,C.Ay,Th.arm,t4,'r  (O→A)',C.Ax-10,C.Ay+20,3);
+  }
+
+  if(t4>0.5){
+    const k=(t4-0.5)/0.5;const bx=14,by=14,bw=248,bh=110;
+    ctx.save();ctx.globalAlpha=k;ctx.fillStyle=Th.box;ctx.strokeStyle=Th.boxB;ctx.lineWidth=1;
+    ctx.beginPath();ctx.roundRect(bx,by,bw,bh,12);ctx.fill();ctx.stroke();ctx.restore();
+    const rows=[
+      {c:Th.dim, l:`dx    = ${p.allNum?fmt(p.dxMm,0)+' mm  = '+fmt(p.dxM,4)+' m':p.sDx}`},
+      {c:Th.arm, l:`h_o   = ${p.allNum?fmt(p.hoMm,0)+' mm  = '+fmt(p.hoM,4)+' m':p.sHo}`},
+      {c:Th.muted??'#8ba3c9', l:`r_ball= ${p.allNum?fmt(p.rbMm,0)+' mm  (drawing only)':'r_ball'}`},
+      {c:Th.pt,  l:`|r|   = ${p.allNum?'√(dx²+h_o²) = '+fmt(Math.sqrt(p.dxM*p.dxM+p.hoM*p.hoM)*1000,1)+' mm':'—'}`},
+      {c:Th.ptO, l:`∠(r)  = ${p.allNum?fmt(Math.atan2(p.hoM,p.dxM)*180/Math.PI,1)+'° from horiz':'—'}`},
+    ];
+    rows.forEach((r,i)=>{txtBox(bx+14,by+20+i*18,r.l,r.c,'700 12px Space Mono',k);});
+  }
+}
+
+function drawMoment(p,t){
+  bgFill();const Th=TH();const C=getCoords(p);
+  const t0=part(t,0,.12),t1=part(t,.10,.30),t2=part(t,.28,.52),
+        t3=part(t,.48,.72),t4=part(t,.68,1.0);
+
+  dot(C.Ax,C.Ay,Th.pt,7,'A',t0,C.Ax-24,C.Ay-16);
+  dot(C.Ox,C.Oy,Th.ptO,7,'O',t0,C.Ox+12,C.Oy+6);
+  dash(C.Ax,C.Ay,C.Ox,C.Oy,Th.muted,t0,[5,4],1.5);
+
+  const fLen=125;
+  const fex=C.cfx*fLen, fey=C.cfy*fLen;
+  arw(C.Ax,C.Ay,C.Ax+fex,C.Ay+fey,Th.force,t1, `F = ${p.allNum?fmt(p.Fv,0)+' N':'F'}`,C.Ax+fex+8,C.Ay+fey-2,3.5);
+
+  if(t2>0){
+    const vLen=C.cfy*fLen;
+    arw(C.Ax,C.Ay,C.Ax,C.Ay+vLen,Th.forceComp,t2, `F·cosφ=${p.allNum?fmt(p.Fvert,2)+' N':'F·cosφ'}`,C.Ax+6,C.Ay+vLen/2,2.5);
+  }
+  if(t2>0){
+    const hLen=C.cfx*fLen;
+    arw(C.Ax,C.Ay,C.Ax+hLen,C.Ay,Th.forceComp,t2, `F·sinφ=${p.allNum?fmt(p.Fhoriz,2)+' N':'F·sinφ'}`,C.Ax+hLen/2,C.Ay-14,2.5);
+  }
+
+  if(t3>0){
+    dash(C.Ax,C.Oy,C.Ox,C.Oy,Th.arm,t3,[6,4],2.5);
+    dash(C.Ax,C.Ay,C.Ax,C.Oy,Th.arm,t3,[4,3],1.8);
+    if(t3>0.3){
+      const k=Math.min(1,(t3-0.3)/0.7);
+      txtBox((C.Ax+C.Ox)/2,C.Oy+18, `dx = ${p.allNum?fmt(p.dxM,4)+' m':'dx'}  (arm for F·cosφ)`, Th.arm,'bold 12px Space Mono',k,'center');
+      txtBox(C.Ax-10,(C.Ay+C.Oy)/2, `h_o = ${p.allNum?fmt(p.hoM,4)+' m':'h_o'}`, Th.arm,'bold 12px Space Mono',k,'right');
+    }
+  }
+
+  if(t4>0){
+    const mCol = p.allNum ? (p.Mo_num>1e-9?Th.momentCCW:p.Mo_num<-1e-9?Th.momentCW:Th.moment) : Th.moment;
+    const ccwDraw = p.allNum ? p.Mo_num<0 : false;
+    arcArrow(C.Ox,C.Oy,55,Math.PI*0.3,Math.PI*1.7,mCol,t4,4,ccwDraw);
+    const dir = p.allNum?(p.Mo_num>1e-9?'CCW':'CW'):'';
+    const moStr = p.allNum?`M_O = ${fmt(p.Mo_num,4)} N·m  (${dir})`:`M_O = F·cosφ·dx + F·sinφ·h_o`;
+    txtBox(C.Ox+65,C.Oy+6,moStr,mCol,'bold 13px Space Grotesk',t4);
+
+    if(t4>0.45){
+      const k=(t4-0.45)/0.55;const bx=14,by=14,bw=298,bh=p.symbolic?70:116;
+      ctx.save();ctx.globalAlpha=k;ctx.fillStyle=Th.box;ctx.strokeStyle=Th.boxB;ctx.lineWidth=1;
+      ctx.beginPath();ctx.roundRect(bx,by,bw,bh,12);ctx.fill();ctx.stroke();ctx.restore();
+      const mCol2=p.allNum?(p.Mo_num>1e-9?Th.momentCCW:p.Mo_num<-1e-9?Th.momentCW:Th.moment):Th.moment;
+      if(p.symbolic){
+        txtBox(bx+14,by+22,'M_O = F·cosφ·dx + F·sinφ·h_o',Th.muted,'700 12px Space Mono',k);
+        txtBox(bx+14,by+48,'Substitute values to compute',Th.muted,'11px Space Grotesk',k);
+      } else {
+        txtBox(bx+14,by+20,`M₁ = F·cosφ·dx = ${fmt(p.Fvert,4)}×${fmt(p.dxM,4)} = ${fmt(p.M1_num,4)} N·m`,Th.forceComp,'12px Space Mono',k);
+        txtBox(bx+14,by+42,`M₂ = F·sinφ·h_o= ${fmt(p.Fhoriz,4)}×${fmt(p.hoM,4)} = ${fmt(p.M2_num,4)} N·m`,Th.forceComp,'12px Space Mono',k);
+        txtBox(bx+14,by+66,`M_O = M₁+M₂ = ${fmt(p.M1_num,4)} + ${fmt(p.M2_num,4)}`,Th.muted,'12px Space Mono',k);
+        txtBox(bx+14,by+90,`M_O = ${fmt(p.Mo_num,4)} N·m`,mCol2,'700 14px Space Mono',k);
+        const ds=p.Mo_num>1e-9?'↺ Counter-clockwise (CCW)':p.Mo_num<-1e-9?'↻ Clockwise (CW)':'= 0';
+        txtBox(bx+14,by+108,ds,mCol2,'12px Space Grotesk',k);
+      }
+    }
+  }
+}
+
+function drawPlaceholder(){
+  bgFill();const Th=TH();
+  const cx=canvas.width/2, cy=canvas.height/2;
+  ctx.save();
+  ctx.strokeStyle=Th.hitchLine;ctx.lineWidth=5;ctx.lineCap='round';ctx.globalAlpha=0.22;
+  ctx.beginPath();ctx.moveTo(cx-200,cy+60);ctx.lineTo(cx+80,cy+60);ctx.stroke();
+  ctx.beginPath();ctx.arc(cx-200,cy+22,32,0,Math.PI*2);
+  ctx.fillStyle=Th.ball;ctx.fill();
+  ctx.beginPath();ctx.arc(cx+80,cy+60,8,0,Math.PI*2);
+  ctx.fillStyle=Th.ptO;ctx.globalAlpha=0.3;ctx.fill();
+  ctx.restore();
+  ctx.save();ctx.globalAlpha=0.7;
+  txtBox(cx,cy-42,'⚡ Enter values and click Solve & Animate',Th.text,'700 20px Space Grotesk',1,'center');
+  txtBox(cx,cy-14,'F, φ, dx, r_ball, h_o — numbers or symbols',Th.muted,'15px Space Grotesk',1,'center');
+  txtBox(cx,cy+120,'Default: F=500 N, φ=30°, dx=275 mm, r=32 mm, h_o=38 mm',Th.muted,'13px Space Grotesk',0.5,'center');
+  txtBox(cx,cy+146,'Expected answer: M_O = +128.58 N·m CCW (119.07 + 9.50)',Th.dim,'13px Space Grotesk',0.5,'center');
+  ctx.restore();
+}
+
+function animateTab(p,tab,sw=false){
+  if(_raf){cancelAnimationFrame(_raf);_raf=null}
+  const badge=document.getElementById('statusBadge');
+  function go(){
+    badge.classList.add('on');
+    const dur=2200, start=performance.now();
+    function frame(now){
+      const t=Math.min((now-start)/dur,1);
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      if(tab==='fbd')      drawFBD(p,t);
+      else if(tab==='geom') drawGeom(p,t);
+      else                  drawMoment(p,t);
+      if(t<1){_raf=requestAnimationFrame(frame)}
+      else{badge.classList.remove('on')}
+    }
+    _raf=requestAnimationFrame(frame);
+  }
+  if(sw){
+    canvas.classList.add('switching');
+    setTimeout(()=>{canvas.classList.remove('switching');go()},280);
+  } else go();
+}
+
+document.getElementById('solveBtn').addEventListener('click',()=>{
+  document.getElementById('errMsg').style.display='none';
+  if(!validate())return;
+  const p=compute();
+  if(!p){
+    document.getElementById('errMsg').textContent='Unable to compute. Please check all fields.';
+    document.getElementById('errMsg').style.display='block';
+    return;
+  }
+  window._P=p;
+  showResults(p);
+  animateTab(p,window._tab||'fbd',false);
+});
+
+document.querySelectorAll('.tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b===btn));
+    window._tab=btn.dataset.tab;
+    if(window._P) animateTab(window._P,window._tab,true);
+    else drawPlaceholder();
+  });
+});
+
+styleInputs();
+drawPlaceholder();
+</script>
+</body>
+</html>
+2. The Car Solver
