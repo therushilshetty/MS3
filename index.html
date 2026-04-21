@@ -748,64 +748,37 @@ function drawFBD(p,t){
   dot(C.Ax,C.Ay,Th.pt,6,'A',t2,C.Ax-26,C.Ay-C.ballR-16);
   dot(C.Ox,C.Oy,Th.ptO,7,'O',t2,C.Ox+14,C.Oy+16);
 
-  const dimY = C.Oy + 58;
-  dash(C.Ax, dimY, C.Ox, dimY, Th.dim, t3, [7,4], 2);
+  // ── DIMENSION LINES (single clean set) ──
   if(t3>0.3){
-    const k=(t3-0.3)/0.7;
+    const k = Math.min(1,(t3-0.3)/0.7);
+
+    // dx: horizontal double-headed arrow BELOW the hitch bar
+    const dyDim = C.Oy + 52;
     ctx.save();ctx.globalAlpha=k;ctx.strokeStyle=Th.dim;ctx.lineWidth=1.5;
-    ctx.beginPath();ctx.moveTo(C.Ax,dimY-6);ctx.lineTo(C.Ax,dimY+6);ctx.stroke();
-    ctx.beginPath();ctx.moveTo(C.Ox,dimY-6);ctx.lineTo(C.Ox,dimY+6);ctx.stroke();
+    ctx.setLineDash([4,3]);
+    ctx.beginPath();ctx.moveTo(C.Ax,C.Oy+14);ctx.lineTo(C.Ax,dyDim-4);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(C.Ox,C.Oy+14);ctx.lineTo(C.Ox,dyDim-4);ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.beginPath();ctx.moveTo(C.Ax,dyDim-6);ctx.lineTo(C.Ax,dyDim+6);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(C.Ox,dyDim-6);ctx.lineTo(C.Ox,dyDim+6);ctx.stroke();
     ctx.restore();
-    txtBox((C.Ax+C.Ox)/2, dimY+16, `${p.allNum?fmt(p.dxMm,0)+' mm':'dx'}`, Th.dim,'bold 13px Space Mono',k,'center');
-  }
-
-  const dimX2 = C.Ox + 52;
-  dash(C.Ax, C.Ay, dimX2, C.Ay, Th.arm, t3, [4,3], 1.5);
-  dash(C.Ox, C.Oy, dimX2, C.Oy, Th.arm, t3, [4,3], 1.5);
-  dash(dimX2, C.Ay, dimX2, C.Oy, Th.arm, t3, [6,4], 2);
-  if(t3>0.5){
-    const k=(t3-0.5)/0.5;
-    ctx.save();ctx.globalAlpha=k;ctx.strokeStyle=Th.arm;ctx.lineWidth=1.5;
-    ctx.beginPath();ctx.moveTo(dimX2-5,C.Ay);ctx.lineTo(dimX2+5,C.Ay);ctx.stroke();
-    ctx.beginPath();ctx.moveTo(dimX2-5,C.Oy);ctx.lineTo(dimX2+5,C.Oy);ctx.stroke();
-    ctx.restore();
-    txtBox(dimX2+8,(C.Ay+C.Oy)/2, `${p.allNum?fmt(p.hoMm,0)+' mm':'h_o'}`, Th.arm,'bold 13px Space Mono',k);
-  }
-
-  if(t3>0.6){
-    const k=(t3-0.6)/0.4;
-    const brlx=C.Ax-C.ballR-8;
-    dash(C.Ax,C.Ay,brlx,C.Ay,Th.muted,k,[3,3],1.5);
-    txtBox(brlx-4,C.Ay-12, `r=${p.allNum?fmt(p.rbMm,0)+' mm':'r_ball'}`, Th.muted??'#8ba3c9','11px Space Mono',k,'right');
-  }
-
-  // Live scaled dimension arrows in FBD — solid arrows whose pixel length = sc * mm
-  if(t3>0.4 && p.allNum){
-    const k=Math.min(1,(t3-0.4)/0.6);
-    const dxPx = p.dxMm * C.sc;   // actual scaled pixel width
-    const hoPx = p.hoMm * C.sc;   // actual scaled pixel height
-
-    // dx arrow: below the hitch bar, double-headed from Ax to Ox
-    const dyDim = C.Oy + 44;
-    ctx.save();ctx.globalAlpha=k;ctx.strokeStyle=Th.dim;ctx.lineWidth=2;
-    // leader ticks
-    ctx.beginPath();ctx.moveTo(C.Ax,C.Oy+20);ctx.lineTo(C.Ax,dyDim+6);ctx.stroke();
-    ctx.beginPath();ctx.moveTo(C.Ox,C.Oy+20);ctx.lineTo(C.Ox,dyDim+6);ctx.stroke();
-    ctx.restore();
-    // double-headed arrow for dx
     arw(C.Ax, dyDim, C.Ox, dyDim, Th.dim, k, null, 0, 0, 2);
     arw(C.Ox, dyDim, C.Ax, dyDim, Th.dim, k, null, 0, 0, 2);
-    txtBox((C.Ax+C.Ox)/2, dyDim+15, `dx = ${fmt(p.dxMm,0)} mm`, Th.dim, 'bold 12px Space Mono', k, 'center');
+    txtBox((C.Ax+C.Ox)/2, dyDim+16, `dx = ${p.allNum?fmt(p.dxMm,0)+' mm':'dx'}`, Th.dim, 'bold 12px Space Mono', k, 'center');
 
-    // h_o arrow: right of O, double-headed from Ay level down to Oy
-    const dxDim = C.Ox + 46;
-    ctx.save();ctx.globalAlpha=k;ctx.strokeStyle=Th.arm;ctx.lineWidth=2;
-    ctx.beginPath();ctx.moveTo(C.Ox+16,C.Ay);ctx.lineTo(dxDim+6,C.Ay);ctx.stroke();
-    ctx.beginPath();ctx.moveTo(C.Ox+16,C.Oy);ctx.lineTo(dxDim+6,C.Oy);ctx.stroke();
+    // h_o: vertical double-headed arrow to the RIGHT of O
+    const dxDim = C.Ox + 52;
+    ctx.save();ctx.globalAlpha=k;ctx.strokeStyle=Th.arm;ctx.lineWidth=1.5;
+    ctx.setLineDash([4,3]);
+    ctx.beginPath();ctx.moveTo(C.Ox+14,C.Ay);ctx.lineTo(dxDim-4,C.Ay);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(C.Ox+14,C.Oy);ctx.lineTo(dxDim-4,C.Oy);ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.beginPath();ctx.moveTo(dxDim-6,C.Ay);ctx.lineTo(dxDim+6,C.Ay);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(dxDim-6,C.Oy);ctx.lineTo(dxDim+6,C.Oy);ctx.stroke();
     ctx.restore();
-    arw(C.Ax+(dxDim-C.Ax), C.Ay, C.Ax+(dxDim-C.Ax), C.Oy, Th.arm, k, null, 0, 0, 2);
-    arw(C.Ax+(dxDim-C.Ax), C.Oy, C.Ax+(dxDim-C.Ax), C.Ay, Th.arm, k, null, 0, 0, 2);
-    txtBox(dxDim+8, (C.Ay+C.Oy)/2, `h_o = ${fmt(p.hoMm,0)} mm`, Th.arm, 'bold 12px Space Mono', k);
+    arw(dxDim, C.Ay, dxDim, C.Oy, Th.arm, k, null, 0, 0, 2);
+    arw(dxDim, C.Oy, dxDim, C.Ay, Th.arm, k, null, 0, 0, 2);
+    txtBox(dxDim+10, (C.Ay+C.Oy)/2, `h_o = ${p.allNum?fmt(p.hoMm,0)+' mm':'h_o'}`, Th.arm, 'bold 12px Space Mono', k);
   }
 
   // fLen scales with F: baseline 130px = 500 N, clamped so it stays visible
